@@ -1,36 +1,30 @@
-﻿Random dice = new Random();
+﻿string[] pallets = [ "B14", "A11", "B12", "A13" ];
 
-int roll1 = dice.Next(1, 7);
-int roll2 = dice.Next(1, 7);
-int roll3 = dice.Next(1, 7);
-
-int total = roll1 + roll2 + roll3;
-
-Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
-
-if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
 {
-    Console.WriteLine("You rolled doubles! +2 bonus to total!");
-    total += 2;
-}
-if (total > 14)
-{
-    Console.WriteLine("You win");
+    Console.WriteLine($"--{pallet}");
 }
 
-if (total < 15)
+//Console.WriteLine("");
+Console.WriteLine("Reversed...");
+Array.Reverse(pallets);
+foreach (var pallet in pallets)
 {
-    Console.WriteLine("Sorry, you loose");
+    Console.WriteLine($"--{pallet}");
 }
 
+string[] pallets2 = [ "B14", "A11", "B12", "A13" ];
+Console.WriteLine("");
 
-/*string message = "The quick brown fox jumps over the lazy dog.";
-bool result = message.Contains("dog");
-Console.WriteLine(result);
+Console.WriteLine($"Before: {pallets2[0].ToLower()}");
+Array.Clear(pallets2, 0, 2);
+Console.WriteLine($"After: {pallets2[0].ToLower()}");
 
-if (message.Contains("fox"))
+Console.WriteLine($"Clearing 2...count: {pallets2.Length}");
+foreach (var pallet in pallets2)
 {
-    Console.WriteLine("What does the fox say?");
-
+    Console.WriteLine($"--{pallet}");
 }
-*/
+
